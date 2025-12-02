@@ -7,5 +7,5 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', function () {
-    return 'Listado de postss';
+    return 'Listado de posts';
 });
