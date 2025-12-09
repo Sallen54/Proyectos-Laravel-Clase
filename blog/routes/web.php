@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\Route;
 #    return view('welcome');
 #});
 
-Route::get('/', function () {
-    return view('inicio');
+Route::get('/', function() {
+$nombre = "Alejandro";
+return view('inicio')->with('nombre', $nombre);
 });
+
 #ruta sesion 1
 Route::get('/posts', function () {
     return 'Listado de posts';
