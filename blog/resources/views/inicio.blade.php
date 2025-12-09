@@ -1,12 +1,6 @@
-<html>
-
-<head>
-    <title>Inicio</title>
-</head>
-
-<body>
+@extends('plantilla')
+@section('titulo', 'Inicio')
+@section('contenido')
     <h1>Página de inicio</h1>
-    <p>Bienvenido/a <?php echo $nombre; ?></p>
-</body>
-
-</html>
+    Bienvenido/a {{ $nombre }}
+@endsection
