@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Route;
 #    return view('welcome');
 #});
 
-Route::get('/', function() {
-$nombre = "Alejandro";
-return view('inicio')->with('nombre', $nombre);
+Route::get('/', function () {
+    $nombre = "Alejandro";
+    return view('inicio')->with('nombre', $nombre);
 });
 
 #ruta sesion 1
@@ -34,3 +34,24 @@ Route::get('contacto', function () {
     return "Página de contacto";
 })->name('ruta_contacto');
 
+Route::get('listado', function () {
+    $libros = array(
+        array(
+            "titulo" => "El juego de Ender",
+            "autor" => "Orson Scott Card"
+        ),
+        array(
+            "titulo" => "La tabla de Flandes",
+            "autor" => "Arturo Pérez Reverte"
+        ),
+        array(
+            "titulo" => "La historia interminable",
+            "autor" => "Michael Ende"
+        ),
+        array(
+            "titulo" => "El Señor de los Anillos",
+            "autor" => "J.R.R. Tolkien"
+        )
+    );
+    return view('listado', compact('libros'));
+});
