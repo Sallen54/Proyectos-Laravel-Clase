@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+#ruta sesion 1
 Route::get('/posts', function () {
     return 'Listado de posts';
 });
