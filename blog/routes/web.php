@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-#Route::get('/', function () {
-#    return view('welcome');
-#});
+Route::get('/', function () {
+    return view('welcome2');
+});
 
 Route::get('/', function () {
     $nombre = "Alejandro";
@@ -58,4 +58,8 @@ Route::get('listado', function () {
 
 Route::get('/posts/{id}', function ($id) {
     return "Ficha del post {$id}";
+})->whereNumber('id')->name('posts_ficha');
+
+Route::get('/posts/{id}', function ($id) {
+    return view('posts.ficha', ['id' => $id]);
 })->whereNumber('id')->name('posts_ficha');
