@@ -55,3 +55,7 @@ Route::get('listado', function () {
     );
     return view('listado', compact('libros'));
 });
+
+Route::get('/posts/{id}', function ($id) {
+    return "Ficha del post {$id}";
+})->whereNumber('id')->name('posts_ficha');
