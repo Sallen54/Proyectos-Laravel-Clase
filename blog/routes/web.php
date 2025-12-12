@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Route;
 // ====================
 
 Route::get('/', function () {
-    $nombre = "Alejandro";
-    return view('inicio')->with('nombre', $nombre);
+    return view('inicio');
 })->name('inicio');
 
 // Ruta: Listado de posts → nombre: "posts_listado"
@@ -43,9 +42,9 @@ Route::get(
     ->where('id', "[0-9]+")
     ->name('saludo');
 
-Route::get('contacto', function () {
-    return "Página de contacto";
-})->name('ruta_contacto');
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
 
 Route::get('listado', function () {
     $libros = array(
@@ -68,3 +67,8 @@ Route::get('listado', function () {
     );
     return view('listado', compact('libros'));
 });
+
+
+Route::get('/blog', function () {
+    return view('blog');
+})->name('blog');
