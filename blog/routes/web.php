@@ -2,21 +2,34 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome2');
-});
+// ====================
+// SESIÓN 1 - EJERCICIO 1
+// ====================
 
 Route::get('/', function () {
     $nombre = "Alejandro";
     return view('inicio')->with('nombre', $nombre);
-});
+})->name('inicio');
 
-#ruta sesion 1
+// Ruta: Listado de posts → nombre: "posts_listado"
 Route::get('/posts', function () {
-    return 'Listado de posts';
-});
+    return view('posts.listado');
+})->name('posts_listado');
 
-#rutas sesion 2
+// Ruta: Ficha de post → nombre: "posts_ficha"
+Route::get('/posts/{id}', function ($id) {
+    return view('posts.ficha', ['id' => $id]);
+})->whereNumber('id')->name('posts_ficha');
+
+// Ruta de prueba con welcome2 (si existe)
+Route::get('/welcome2', function () {
+    return view('welcome2');
+})->name('welcome2');
+
+// ====================
+// SESIÓN 2 - RUTAS
+// ====================
+
 Route::get('fecha', function () {
     return date("d/m/y h:i:s");
 });
@@ -55,11 +68,3 @@ Route::get('listado', function () {
     );
     return view('listado', compact('libros'));
 });
-
-Route::get('/posts/{id}', function ($id) {
-    return "Ficha del post {$id}";
-})->whereNumber('id')->name('posts_ficha');
-
-Route::get('/posts/{id}', function ($id) {
-    return view('posts.ficha', ['id' => $id]);
-})->whereNumber('id')->name('posts_ficha');
