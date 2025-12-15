@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-// ====================
-// SESIÓN 1 - EJERCICIO 1
-// ====================
+
+#Route::get('/', function () {
+ #   return view('inicio');
+#})->name('inicio');
 
 Route::get('/', function () {
-    return view('inicio');
-})->name('inicio');
+    return view('home');
+});
 
 // Ruta: Listado de posts → nombre: "posts_listado"
 Route::get('/posts', function () {
