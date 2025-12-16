@@ -21,7 +21,7 @@
                 y descubrir todo el contenido disponible.
             </p>
 
-            <a href="#" class="btn btn-primary mt-3">
+            <a href="{{ route('posts.index') }}" class="btn btn-primary mt-3">
                 Ver Posts
             </a>
         </div>
