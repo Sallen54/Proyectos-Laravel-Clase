@@ -7,7 +7,6 @@ Route::get('/', function () {
     return view('home');
 })->name('inicio');
 
-// Esta es la única ruta que necesitas para posts:
 Route::resource('posts', PostController::class)
     ->only(['index', 'show', 'create', 'edit']);
 

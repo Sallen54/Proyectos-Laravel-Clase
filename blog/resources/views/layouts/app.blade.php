@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
         }
     </style>
 </head>
+
 <body>
 
     {{-- Barra de navegación --}}
@@ -21,8 +23,7 @@
         <div class="container">
             <a class="navbar-brand" href="{{ route('inicio') }}">Mi Blog</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -49,7 +50,15 @@
             Fecha actual: {{ fechaActual('d/m/Y') }}
         </small>
     </div>
-
+    {{-- Mensajes flash --}}
+    <div class="container mt-3">
+        @if(session()->has('mensaje'))
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                {{ session('mensaje') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        @endif
+    </div>
     {{-- Contenido principal --}}
     <main class="py-4">
         <div class="container">
@@ -60,4 +69,5 @@
     {{-- JS Bootstrap --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
+
 </html>

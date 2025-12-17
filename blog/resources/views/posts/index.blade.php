@@ -1,4 +1,7 @@
-<h1>Listado de posts</h1>
+@extends('layouts.app')
+
+@section('content')
+<h1>Listado de Posts</h1>
 <ul>
     @foreach($posts as $post)
         <li>
@@ -8,3 +11,4 @@
         </li>
     @endforeach
 </ul>
+@endsection

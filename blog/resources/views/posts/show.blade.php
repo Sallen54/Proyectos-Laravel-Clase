@@ -1,3 +1,7 @@
-<h1>Ficha del post #{{ $id }}</h1>
-<p>Aquí irían los detalles del post.</p>
+@extends('layouts.app')
+
+@section('content')
+<h1>{{ $post['titulo'] }}</h1>
+<p>{{ $post['contenido'] }}</p>
 <a href="{{ route('posts.index') }}">Volver al listado</a>
+@endsection
