@@ -7,13 +7,9 @@ Route::get('/', function () {
     return view('home');
 })->name('inicio');
 
-Route::resource('posts', PostController::class)
-    ->only(['index', 'show', 'create', 'edit']);
+// Rutas de prueba primero
+Route::get('/posts/nuevoPrueba', [PostController::class, 'nuevoPrueba']);
+Route::get('/posts/editarPrueba/{id}', [PostController::class, 'editarPrueba']);
 
-Route::get('/test-helper', function() {
-    dd([
-        'setActivo_exists' => function_exists('setActivo'),
-        'fechaActual_exists' => function_exists('fechaActual'),
-        'fechaActual_test' => fechaActual('d/m/Y H:i:s')
-    ]);
-});
+// Después el resource
+Route::resource('posts', PostController::class);
