@@ -7,6 +7,12 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-Route::resource('posts', PostController::class)->only([
-    'index', 'show', 'create', 'edit'
-]);
+// Rutas temporales para pruebas - DEBEN TENER NOMBRE
+Route::get('/posts/nuevoPrueba', [PostController::class, 'nuevoPrueba'])
+    ->name('posts.nuevoPrueba');
+    
+Route::get('/posts/editarPrueba/{id}', [PostController::class, 'editarPrueba'])
+    ->name('posts.editarPrueba');
+
+// Rutas de recursos (tienen nombres automáticos)
+Route::resource('posts', PostController::class);
