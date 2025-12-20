@@ -1,15 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('inicio');
 });
 
-Route::get('/posts', function () {
-    return view('posts.index');
-});
-
-Route::get('/posts/{id}', function ($id) {
-    return view('posts.show', ['id' => $id]);
-});
+Route::resource('posts', PostController::class)->only([
+    'index', 'show', 'create', 'edit'
+]);
